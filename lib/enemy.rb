@@ -6,9 +6,9 @@ class Enemy
     def initialize(left_offset: 0, right_offset: 0)
         @left_offset = left_offset
         @right_offset = right_offset
-        @front = Square.new(x: 2 + @left_offset, y: 16, size: 16, opacity: 0)
-        @rear = Square.new(x: 0 + @left_offset, y: 0, size: 20, opacity: 0)
-        @sprite = Sprite.new('./assets/enemy_sprite.png', x: 0 + @left_offset - 8, y: 0)
+        @front = Square.new(x: 2 + @left_offset, y: 36, size: 16, opacity: 0)
+        @rear = Square.new(x: 0 + @left_offset, y: 20, size: 20, opacity: 0)
+        @sprite = Sprite.new('./assets/enemy_sprite.png', x: 0 + @left_offset - 8, y: 16)
         @x_velocity = 2
         @direction = 1
         @status = :in_tact
@@ -38,6 +38,13 @@ class Enemy
         parts.each(&:remove)
         @sprite.remove
         @status = :destroyed
+        Sprite.new(
+            './assets/explosion_sheet.png',
+            x: @sprite.x - 40,
+            y: @sprite.y - 40,
+            clip_width: 100,
+            time: 0.1
+        ).play
     end
 
     def destroyed?

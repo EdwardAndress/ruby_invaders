@@ -11,7 +11,7 @@ require_relative './lib/enemy.rb'
 # player shooting - DONE
 # enemy shooting - DONE
 # player can lose - DONE
-# refactor game class
+# refactor main class
 # move todos to github project
 # game over screen
 # can play again
@@ -49,7 +49,7 @@ end
 on :key_down do |event|
     case event.key
     when 'space'
-        @flying_bullets << @player.shoot
+        @flying_bullets << @player.shoot        
     end
 end
 
@@ -100,7 +100,7 @@ spawn_enemies
 update do
     update_bullets
     update_enemies
-    @flying_bullets << @enemies.sample.shoot if tick % 60 == 0
+    # @flying_bullets << @enemies.sample.shoot if tick % 60 == 0
     tick += 1
     close if player_hit? || player_wins?
 end
