@@ -6,9 +6,9 @@ class Enemy
     def initialize(left_offset: 0, right_offset: 0)
         @left_offset = left_offset
         @right_offset = right_offset
-        @front = Square.new(x: 2 + @left_offset, y: 36, size: 16, opacity: 0)
+        @front = Square.new(x: 4 + @left_offset, y: 32, size: 12, opacity: 0)
         @rear = Square.new(x: 0 + @left_offset, y: 20, size: 20, opacity: 0)
-        @sprite = Sprite.new('./assets/enemy_sprite.png', x: 0 + @left_offset - 8, y: 16)
+        @sprite = Sprite.new('./assets/enemy_sprite.png', x: 0 + @left_offset - 6, y: 16)
         @x_velocity = 2
         @direction = 1
         @status = :in_tact
