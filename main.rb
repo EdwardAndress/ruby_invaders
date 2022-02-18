@@ -100,7 +100,7 @@ spawn_enemies
 update do
     update_bullets
     update_enemies
-    # @flying_bullets << @enemies.sample.shoot if tick % 60 == 0
+    @flying_bullets << @enemies.sample.shoot if tick % 60 == 0
     tick += 1
     close if player_hit? || player_wins?
 end
